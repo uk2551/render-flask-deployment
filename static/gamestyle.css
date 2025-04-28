@@ -1,0 +1,75 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f4ff;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  .top-bar {
+    background: #4c6ef5;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 30px;
+  }
+  .menu button {
+    background: #5c7cfa;
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    margin: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .menu button:hover {
+    background: #748ffc;
+  }
+  .sell button {
+    background: #5c7cfa;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    margin: 8px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  .sell button:hover {
+    background: #748ffc;
+  }
+
+
+
+
+  .list-box, .inventory-grid {
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  }
+  .shop-item, .inventory-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 10px 0;
+    padding: 10px;
+    background: #e7edff;
+    border-radius: 5px;
+  }
+  .roll-button, .buy-button {
+    background: #5c7cfa;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .roll-button:hover, .buy-button:hover {
+    background: #748ffc;
+  }

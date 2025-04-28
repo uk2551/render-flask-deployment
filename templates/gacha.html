@@ -1,0 +1,37 @@
+{% extends "game_base.html" %}
+
+{% block title %}
+    <title>Gacha</title>
+{% endblock %}
+
+
+{% block content %}
+<div class="top-bar">
+    <div>Gems: {{data.gems}}</div>
+    <div>Coins: {{data.coins}}</data></div>
+  </div>
+
+  <div class="menu">
+    <button onclick="location.href='/mainGame/{{id}}'" >Go to Home</button>
+    <button onclick="location.href='/mainGame/{{id}}/gacha'" style="background: #4f5d92;" >Go to Gacha</button>
+    <button onclick="location.href='/mainGame/{{id}}/shop'">Go to Shop</button>
+    <button onclick="location.href='/mainGame/{{id}}/inventory'">Go to Inventory</button>
+  </div>
+<!-- inside body for Gacha Page -->
+<h1>Gacha Summon</h1>
+<div class="list-box">
+  <p><strong>Commond sword</strong> - 55% chance</p>
+  <p><strong>Rare sword</strong> - 32% chance</p>
+  <p><strong>Epic sword</strong> - 11% chance</p>
+  <p><strong>Legend sword</strong> - 2% chance</p>
+</div>
+<button class="roll-button" onclick="location.href='/mainGame/{{id}}/gacha/roll1'"> Roll 🎲 X1 100gems</button>
+<button class="roll-button" onclick="location.href='/mainGame/{{id}}/gacha/roll10'"> Roll 🎲 X10 900gems</button>
+<p style="color: red;">{% if warnfail %}
+    {{warnfail}}
+{% endif %}</p>
+<p style="color: rgb(128, 168, 68);">{% if warnsuc %}
+    {{warnsuc}}
+{% endif %}</p>
+
+{% endblock %}

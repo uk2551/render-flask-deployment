@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Dashboard
+<link rel="stylesheet" href="{{ url_for('static', filename='style_board.css') }}">
+{% endblock %}
+
+{% block content %}
+<h2>Admin Dashboard - User Management</h2>
+
+<div class="table-container">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Password</th>
+                <th>Gems</th>
+                <th>Coins</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for data in datas%}
+            <tr>
+                <td>{{data.id}}</td>
+                <td>{{data.username}}</td>
+                <td>{{data.password}}</td>
+                <td>{{data.gems}}</td>
+                <td>{{data.coins}}</td>
+                <td>
+                    <a class="update-btn" href="/admin/dashboard/update/{{data.id}}">Update</a>
+                    <a class="delete-btn" href="/admin/dashboard/delete/{{data.id}}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a href="/admin/dashboard/logout">Log out</a>
+</div>
+
+{% endblock %}

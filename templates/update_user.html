@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}Update User
+<link rel="stylesheet" href="{{ url_for('static', filename='update.css') }}">
+{% endblock %}
+
+{% block content %}
+<h2>Update User Information</h2>
+
+<div class="update-form-container">
+    <form method="POST" action="/admin/dashboard/update/{{user.id}}">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" value="{{ user.username }}" required>
+
+        <label for="password">Password:</label>
+        <input type="text" id="password" name="password" value="{{ user.password }}" required>
+
+        <label for="gems">Gems:</label>
+        <input type="number" id="gems" name="gems" value="{{ user.gems }}" required>
+
+        <label for="coins">Coins:</label>
+        <input type="number" id="coins" name="coins" value="{{ user.coins }}" required>
+
+        <button type="submit" class="save-btn">Save Changes</button>
+    </form>
+</div>
+{% endblock %}

@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Admin Login
+<link rel="stylesheet" href="{{ url_for('static', filename='admin_style.css') }}">
+{% endblock %}
+
+{% block content %}
+<h2>Admin Panel Login</h2>
+<form method="POST" action="/admin/login">
+    <input type="text" name="admin_username" placeholder="Admin Username" required>
+    <input type="password" name="admin_password" placeholder="Admin Password" required>
+    <button type="submit">Login as Admin</button>
+    <p class="wraning">{{context}}</p>
+</form>
+<p><a href="/login">Back to Home</a></p>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "game_base.html" %}
+
+{% block title %}
+    <title>Inventory</title>
+{% endblock %}
+
+
+{% block content %}
+<!-- inside body for Inventory Page -->
+<div class="top-bar">
+    <div>Gems: {{data.gems}}</div>
+    <div>Coins: {{data.coins}}</data></div>
+  </div>
+
+<div class="menu">
+    <button onclick="location.href='/mainGame/{{id}}'" >Go to Home</button>
+    <button onclick="location.href='/mainGame/{{id}}/gacha'" >Go to Gacha</button>
+    <button onclick="location.href='/mainGame/{{id}}/shop'">Go to Shop</button>
+    <button onclick="location.href='/mainGame/{{id}}/inventory'" style="background: #4f5d92;">Go to Inventory</button>
+  </div>
+
+<h1>Your Inventory</h1>
+<div class="inventory-grid">
+  {% for i in index %}
+
+  <div class="inventory-item">
+    <span>Item ID: {{i+1}} - {{items[i]}}</span>
+    <div class="sell"> <button onclick="location.href='/mainGame/{{id}}/inventory/sell/{{i}}'" style="background: #cb2a2a;  color: white ;">Sell x50 coins</button></div>
+  </div>
+
+  {% endfor%}
+  
+</div>
+
+{% endblock %}

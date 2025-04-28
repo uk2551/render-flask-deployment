@@ -1,0 +1,23 @@
+{% extends "game_base.html" %}
+
+{% block title %}
+    <title>Game gacha</title>
+{% endblock %}
+
+<!-- Main_Game Page -->
+{% block content %}
+<div class="top-bar">
+  <div>Gems: {{data.gems}}</div>
+  <div>Coins: {{data.coins}}</data></div>
+</div>
+
+<div class="menu">
+  <button onclick="location.href='/mainGame/{{id}}'" style="background: #4f5d92;">Go to Home</button>
+  <button onclick="location.href='/mainGame/{{id}}/gacha'" >Go to Gacha</button>
+  <button onclick="location.href='/mainGame/{{id}}/shop'">Go to Shop</button>
+  <button onclick="location.href='/mainGame/{{id}}/inventory'">Go to Inventory</button>
+</div>
+<div class="menu"><button onclick="location.href='/mainGame/{{id}}/logout'">Logout</button></div>
+
+
+{% endblock %}
