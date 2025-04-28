@@ -8,7 +8,7 @@ import os
 load_dotenv()
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
-db = SQLAlchemy(app)
+db = os.getenv("DATABASE_URL")
 app.secret_key = os.getenv("SECRET_KEY")
 
 class Data (db.Model):
