@@ -8,7 +8,11 @@ import os
 
 load_dotenv()
 app = Flask(__name__)
+<<<<<<< HEAD
 app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
+=======
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv("DATABASE_URL")
+>>>>>>> 24bbba5950def37215afc1f779bec2271435ef7f
 db = SQLAlchemy(app)
 app.secret_key = os.getenv("SECRET_KEY")
 
@@ -287,4 +291,4 @@ def sell (id, index):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
