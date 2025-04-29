@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, url_for
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import create_engine, text
 from dotenv import load_dotenv
 import json
 import random
@@ -7,9 +8,26 @@ import os
 
 load_dotenv()
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///test.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('DATABASE_URL')
 db = SQLAlchemy(app)
 app.secret_key = os.getenv("SECRET_KEY")
+
+engine = create_engine(os.getenv('DATABASE_URL'))
+
+create_table_query = """
+CREATE TABLE IF NOT EXISTS Data (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(100) NOT NULL,
+    password VARCHAR(20) NOT NULL,
+    gems INTEGER,
+    coins INTEGER,
+    inventory TEXT
+);"""
+
+with engine.connect() as connection:
+    connection.execute(text(create_table_query))
+    connection.commit()
+    print("Table 'data' created or already exists!")
 
 class Data (db.Model):
     id = db.Column(db.Integer, primary_key =True)
@@ -54,8 +72,8 @@ def signup ():
                 
                 username = username,
                 password = password,
-                gems = 500,
-                coins = 1000,
+                gems = 1000,
+                coins = 10000,
                 inventory = json.dumps([])
             )
             try:
